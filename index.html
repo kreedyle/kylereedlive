@@ -1,134 +1,402 @@
-
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="generator" content="Site Designer 4.0.3113">
-  <title>Kyle Reed Music</title>
-  <link rel="stylesheet" href="css/bootstrap4.min.css">
-  <link rel="stylesheet" href="css/wireframe-theme.min.css">
-  <script>document.createElement( "picture" );</script>
-  <script class="picturefill" async="async" src="js/picturefill.min.js"></script>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,b">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kyle Reed Live</title>
+
 <style>
-video {
-    object-fit: contain;
+* {
     margin: 0;
     padding: 0;
-    border: 0;
+    box-sizing: border-box;
 }
 
-.background-video {
-overflow: hidden;
-position: absolute;
-width: 100%;
-height: 100%;
+html {
+    scroll-behavior: smooth;
 }
 
-.background-video video {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-min-width: 100%;
-min-height: 100%;
-width: auto;
-height: auto;
-}
-.view-cap, .view-container-border {
-background-color: #fff !important;
+body {
+    font-family: Georgia, serif;
+    background-color: #111;
+    color: white;
+    line-height: 1.6;
 }
 
-.agenda .date-label {
-background: #f0f0f0 !important;
+.hero {
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.55)
+        ),
+        url('assets/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    letter-spacing: 3px;
+    margin-bottom: .5rem;
+}
+
+.hero h2 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 5rem 2rem;
+}
+
+.section h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+details {
+    background: #1d1d1d;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+}
+
+summary {
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.details-content {
+    padding: 1rem 1.5rem 2rem;
+}
+
+.video-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.video-grid iframe {
+    width: 100%;
+    height: 400px;
+}
+
+.repertoire-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 2rem;
+}
+
+.repertoire-grid ul {
+    padding-left: 20px;
+}
+
+.shows ul {
+    list-style: none;
+}
+
+.shows li {
+    margin-bottom: 1rem;
+}
+
+.contact-box {
+    text-align: center;
+}
+
+.contact-box a {
+    color: white;
+}
+
+.socials {
+    text-align: center;
+    padding: 2rem;
+}
+
+.socials a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #000;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.video-grid iframe{
+    height:250px;
+}
+
 }
 </style>
+
 </head>
 
-<body class="body-1">
-  <div class="html-element"><div class="background-video">
-  <video playsinline autoplay muted loop preload="none" poster=""><source src="../video/blake_web-bkgd.mp4" type="video/mp4"></video>
-</div></div>
-  <div class="container-grid header-con">
-    <h1 class="heading-1">BLAKE<span class="heading-text-1">BRO<span class="heading-text-3">C</span>K</span>MUSIC</h1>
-    <span class="text-element sub-head">Porch Swing Strummer</span>
-  </div>
-  <div class="container-grid main-con">
-    <div class="container-grid container-1" role="tablist" aria-multiselectable="true" id="accordion">
-      <div class="card container-grid">
-        <div class="card-header container-grid" id="headingOne" role="tab">
-          <a class="link-text text-link-1" href="#collapseOne" data-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">About Blake</a>
-        </div>
-        <div class="collapse container-grid" id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-block container-grid">
-            <p class="paragraph paragraph-2">Kyle Reed is a Richmond, Virginia-based musician, songwriter, and self-described "old soul" whose performances blend classic rock, country, folk, soul, and modern acoustic favorites into an engaging, nostalgic experience.&nbsp;<br>
-            </p>
-            <p class="paragraph paragraph-2">Originally from Florida, Kyle spent several seasons performing throughout the Fort Walton Beach and Destin area, appearing at popular venues including McGuire's Irish Pub, Brotula's Seafood House & Steamer, AJ's Seafood & Oyster Bar, The Other End, and The Green Door.<br>
-            </p>
-            <p class="paragraph paragraph-2">Drawing inspiration from artists such as Paul Simon, Bob Dylan, John Prine, Tom Petty, The Beatles, and The Head and the Heart, Kyle delivers a repertoire that balances timeless crowd favorites with thoughtful songwriter selections.<br>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="card container-grid">
-        <div class="card-header container-grid" id="headingTwo" role="tab">
-          <a class="link-text text-link-1" href="#collapseTwo" data-toggle="collapse" aria-expanded="true" aria-controls="collapseTwo">Media</a>
-        </div>
-        <div class="collapse container-grid" id="collapseTwo" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-          <div class="card-block container-grid">
-            <p class="paragraph paragraph-2">Videos of original and cover material.<br>
-            </p>
-            <div class="responsive-video youtube video-platform-1" data-original-url="https://www.youtube.com/watch?v=oCn5f2ooxPA&amp;feature=youtu.be"><iframe src='https://www.youtube.com/embed/oCn5f2ooxPA?feature=youtu.be' data-original-url='https://www.youtube.com/watch?v=oCn5f2ooxPA&feature=youtu.be' frameborder='0' allowfullscreen></iframe></div>
-            <p class="paragraph paragraph-2">Blake Brock Band - Africa (ToTo cover)<br>
-            </p>
-            <div class="responsive-video youtube video-platform-2" data-original-url="https://www.youtube.com/watch?v=cFPcTJ_i0hk&amp;feature=youtu.be"><iframe src='https://www.youtube.com/embed/cFPcTJ_i0hk?feature=youtu.be' data-original-url='https://www.youtube.com/watch?v=cFPcTJ_i0hk&feature=youtu.be' frameborder='0' allowfullscreen></iframe></div>
-            <p class="paragraph paragraph-2">Blake Brock Band - Let it Fall (original)<br>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="card container-grid">
-        <div class="card-header container-grid" id="headingThree" role="tab">
-          <a class="link-text text-link-1" href="#collapseThree" data-toggle="collapse" aria-expanded="true" aria-controls="collapseThree">Photos</a>
-        </div>
-        <div class="collapse container-grid" id="collapseThree" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
-          <div class="card-block container-grid">
-            <p class="paragraph paragraph-2">Photos for use with promotional events. Click the image for link to online album.<br>
-            </p><a href="https://www.icloud.com/sharedalbum/#B0w5oqs3qe8f5u" class="responsive-picture photo-album" target="_blank"><picture><img alt="Blake Brock Band" src="./images/photos.jpg"></picture></a>
-          </div>
-        </div>
-      </div>
-      <div class="card container-grid">
-        <div class="card-header container-grid" id="headingFour" role="tab">
-          <a class="link-text text-link-1" href="#collapseFour" data-toggle="collapse" aria-expanded="true" aria-controls="collapseFour">Join Our Mailing List</a>
-        </div>
-        <div class="collapse container-grid" id="collapseFour" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
-          <div class="card-block container-grid">
-            <div class="html-element"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfLVxklFquqy24KeuNuqILaTOHnRcrbA8PgA14tclgt81Kbqw/viewform?embedded=true" width="360" height="760" frameborder="0" marginheight="0" marginwidth="0" scrolling="no">Loading…</iframe></div>
-          </div>
-        </div>
-      </div>
-      <div class="card container-grid">
-        <div class="card-header container-grid" id="headingFive" role="tab">
-          <a class="link-text text-link-1" href="#collapseFive" data-toggle="collapse" aria-expanded="true" aria-controls="collapseFive">Upcoming Shows</a>
-        </div>
-        <div class="collapse container-grid" id="collapseFive" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
-          <div class="card-block container-grid">
-            <div class="html-element html-element-1"><iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FChicago&amp;src=bXJibGFrZWJyb2NrQGdtYWlsLmNvbQ&amp;color=%239E69AF&amp;mode=AGENDA&amp;showTitle=0&amp;showDate=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0" style="border-width:0" width="360" height="600" frameborder="0" scrolling="no"></iframe></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container-grid social-con"><a href="https://www.instagram.com/_blakebrock/" class="responsive-picture social-icon" target="_blank" title="instagram"><picture><img alt="instagram" src="./images/instagram.svg"></picture></a><a href="https://www.facebook.com/blakebrockmusic/" class="responsive-picture social-icon" target="_blank" title="facebook"><picture><img alt="facebook" src="./images/facebook.svg"></picture></a><a href="https://www.youtube.com/channel/UCaJzVIWsstqmJH6y6FFulew/videos" class="responsive-picture social-icon" target="_blank" title="youtube"><picture><img alt="youtube" src="./images/youtube.svg"></picture></a><a href="https://open.spotify.com/artist/2X6vcYjPURFhixjOLw4YOq" class="responsive-picture social-icon" target="_blank" title="spotify"><picture><img alt="spotify" src="./images/spotify.svg"></picture></a>
-  </div>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/outofview.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-</body>
+<body>
 
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>KYLE REED LIVE</h1>
+
+<h2>Classic Rock • Americana • Country • Folk</h2>
+
+<p>
+Richmond-based solo acoustic performer bringing timeless songs,
+memorable singalongs, and a laid-back atmosphere to breweries,
+restaurants, weddings, private events, and community gatherings.
+</p>
+
+<a href="#booking" class="button">
+Book Kyle
+</a>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<details open>
+<summary>About Kyle</summary>
+
+<div class="details-content">
+
+<p>
+Kyle Reed is a Richmond, Virginia-based musician, songwriter, and
+self-described "old soul" whose performances blend classic rock,
+country, folk, soul, and modern acoustic favorites into an engaging,
+nostalgic experience.
+</p>
+
+<br>
+
+<p>
+Originally from Florida, Kyle spent several seasons performing throughout
+the Fort Walton Beach and Destin area, appearing at venues including
+McGuire's Irish Pub, Brotula's Seafood House & Steamer, AJ's Seafood &
+Oyster Bar, The Other End, and The Green Door.
+</p>
+
+<br>
+
+<p>
+Drawing inspiration from Tom Petty, Bob Dylan, John Prine,
+Paul Simon, Sam Cooke, The Beatles, and The Head and the Heart,
+Kyle delivers a repertoire that balances timeless crowd favorites
+with thoughtful songwriter selections.
+</p>
+
+</div>
+
+</details>
+
+<details>
+
+<summary>Featured Repertoire</summary>
+
+<div class="details-content">
+
+<div class="repertoire-grid">
+
+<div>
+
+<h3>Classic Rock</h3>
+
+<ul>
+<li>American Girl</li>
+<li>Beast of Burden</li>
+<li>Rocket Man</li>
+<li>Pretty Woman</li>
+<li>Mainstreet</li>
+<li>You Wreck Me</li>
+</ul>
+
+</div>
+
+<div>
+
+<h3>Country & Americana</h3>
+
+<ul>
+<li>Friends in Low Places</li>
+<li>Wagon Wheel</li>
+<li>Tennessee Whiskey</li>
+<li>Angel from Montgomery</li>
+<li>On the Road Again</li>
+<li>Chattahoochee</li>
+</ul>
+
+</div>
+
+<div>
+
+<h3>Soul, Folk & Singer-Songwriter</h3>
+
+<ul>
+<li>Stand By Me</li>
+<li>Dock of the Bay</li>
+<li>Wonderful World</li>
+<li>Bucket of Rain</li>
+<li>You Can Call Me Al</li>
+<li>Lost in My Mind</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</details>
+
+<details>
+
+<summary>Videos</summary>
+
+<div class="details-content">
+
+<div class="video-grid">
+
+<iframe
+src="https://www.youtube.com/embed/GNZgdzQQx44"
+title="Original Tune about the beauty of upcycling called "Street Shopping""
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+<iframe
+src="https://www.youtube.com/embed/O385bOJAoGo"
+title="White Stripes Cover"
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</div>
+
+</details>
+
+<details>
+
+<summary>Upcoming Shows</summary>
+
+<div class="details-content shows">
+
+<ul>
+<li>June 10 • Westham Tavern • Richmond, VA</li>
+<li>July 8 • Westham Tavern • Richmond, VA</li>
+</ul>
+
+<p>
+Additional dates announced regularly.
+</p>
+
+</div>
+
+</details>
+
+<details>
+
+<summary>Perfect For</summary>
+
+<div class="details-content">
+
+<ul>
+<li>Breweries & Wineries</li>
+<li>Restaurants & Coffeehouses</li>
+<li>Wedding Cocktail Hours</li>
+<li>Private Parties</li>
+<li>Community Events</li>
+<li>Corporate Gatherings</li>
+</ul>
+
+</div>
+
+</details>
+
+<details id="booking">
+
+<summary>Booking Information</summary>
+
+<div class="details-content contact-box">
+
+<p>
+Available throughout Richmond and Central Virginia.
+</p>
+
+<br>
+
+<p>
+For availability, pricing, and event inquiries:
+</p>
+
+<br>
+
+<a href="mailto:kyle-reed@live.com">
+kyle-reed@live.com
+</a>
+
+</div>
+
+</details>
+
+</section>
+
+<div class="socials">
+
+<a href="#">Instagram</a> |
+<a href="#">Facebook</a> |
+<a href="#">YouTube</a>
+
+</div>
+
+<footer>
+
+<p>
+© 2026 Kyle Reed Live
+</p>
+
+</footer>
+
+</body>
 </html>
