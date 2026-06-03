@@ -1,163 +1,401 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyle Reed Live</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kyle Reed Live</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, serif;
+    background-color: #111;
+    color: white;
+    line-height: 1.6;
+}
+
+.hero {
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.55)
+        ),
+        url('assets/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    letter-spacing: 3px;
+    margin-bottom: .5rem;
+}
+
+.hero h2 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 5rem 2rem;
+}
+
+.section h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+details {
+    background: #1d1d1d;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+}
+
+summary {
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.details-content {
+    padding: 1rem 1.5rem 2rem;
+}
+
+.video-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.video-grid iframe {
+    width: 100%;
+    height: 400px;
+}
+
+.repertoire-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 2rem;
+}
+
+.repertoire-grid ul {
+    padding-left: 20px;
+}
+
+.shows ul {
+    list-style: none;
+}
+
+.shows li {
+    margin-bottom: 1rem;
+}
+
+.contact-box {
+    text-align: center;
+}
+
+.contact-box a {
+    color: white;
+}
+
+.socials {
+    text-align: center;
+    padding: 2rem;
+}
+
+.socials a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #000;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.video-grid iframe{
+    height:250px;
+}
+
+}
+</style>
+
 </head>
 
 <body>
 
-<header>
-    <nav>
-        <h1>Kyle Reed</h1>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#music">Music</a></li>
-            <li><a href="#videos">Videos</a></li>
-            <li><a href="#shows">Shows</a></li>
-            <li><a href="#booking">Booking</a></li>
-        </ul>
-    </nav>
-</header>
-
 <section class="hero">
-    <div class="hero-content">
-        <h2>Classic Rock • Americana • Country • Folk</h2>
 
+<div class="hero-content">
 
-    <p>
-        Richmond-based solo acoustic performer bringing timeless songs,
-        memorable singalongs, and a laid-back atmosphere to breweries,
-        restaurants, weddings, and private events.
-    </p>
+<h1>KYLE REED LIVE</h1>
 
-    <a href="#booking" class="button">Book Now!</a>
+<h2>Classic Rock • Americana • Country • Folk</h2>
+
+<p>
+Richmond-based solo acoustic performer bringing timeless songs,
+memorable singalongs, and a laid-back atmosphere to breweries,
+restaurants, weddings, private events, and community gatherings.
+</p>
+
+<a href="#booking" class="button">
+Book Kyle
+</a>
+
 </div>
 
-
 </section>
 
-<section id="about">
-    <h2>About</h2>
+<section class="section">
 
+<details open>
+<summary>About Kyle</summary>
 
-<p>
-    Kyle Reed is a Richmond, Virginia-based musician, songwriter,
-    and self-described "old soul".
-</p>
+<div class="details-content">
 
 <p>
-    Originally from Florida, Kyle spent several seasons performing
-    throughout the Fort Walton Beach and Destin area before relocating
-    to Richmond.
+Kyle Reed is a Richmond, Virginia-based musician, songwriter, and
+self-described "old soul" whose performances blend classic rock,
+country, folk, soul, and modern acoustic favorites into an engaging,
+nostalgic experience.
 </p>
+
+<br>
 
 <p>
-    Drawing inspiration from Tom Petty, Bob Dylan, John Prine,
-    Paul Simon, Sam Cooke, The Beatles, and The Head and the Heart,
-    Kyle's performances blend familiar favorites with thoughtful
-    songwriter selections.
+Originally from Florida, Kyle spent several seasons performing throughout
+the Fort Walton Beach and Destin area, appearing at venues including
+McGuire's Irish Pub, Brotula's Seafood House & Steamer, AJ's Seafood &
+Oyster Bar, The Other End, and The Green Door.
 </p>
 
+<br>
 
-</section>
+<p>
+Drawing inspiration from Tom Petty, Bob Dylan, John Prine,
+Paul Simon, Sam Cooke, The Beatles, and The Head and the Heart,
+Kyle delivers a repertoire that balances timeless crowd favorites
+with thoughtful songwriter selections.
+</p>
 
-<section id="music">
-    <h2>Featured Repertoire</h2>
-
-
-<div class="songs">
-    <div>
-        <h3>Classic Rock</h3>
-        <ul>
-            <li>American Girl</li>
-            <li>Beast of Burden</li>
-            <li>Rocket Man</li>
-            <li>Pretty Woman</li>
-        </ul>
-    </div>
-
-    <div>
-        <h3>Country & Americana</h3>
-        <ul>
-            <li>Friends in Low Places</li>
-            <li>Wagon Wheel</li>
-            <li>Tennessee Whiskey</li>
-            <li>Angel from Montgomery</li>
-        </ul>
-    </div>
-
-    <div>
-        <h3>Soul & Folk</h3>
-        <ul>
-            <li>Stand By Me</li>
-            <li>Dock of the Bay</li>
-            <li>Wonderful World</li>
-            <li>Bucket of Rain</li>
-        </ul>
-    </div>
 </div>
 
+</details>
 
-</section>
+<details>
 
-<section id="videos">
-    <h2>Videos</h2>
+<summary>Featured Repertoire</summary>
 
+<div class="details-content">
+
+<div class="repertoire-grid">
+
+<div>
+
+<h3>Classic Rock</h3>
+
+<ul>
+<li>American Girl</li>
+<li>Beast of Burden</li>
+<li>Rocket Man</li>
+<li>Pretty Woman</li>
+<li>Mainstreet</li>
+<li>You Wreck Me</li>
+</ul>
+
+</div>
+
+<div>
+
+<h3>Country & Americana</h3>
+
+<ul>
+<li>Friends in Low Places</li>
+<li>Wagon Wheel</li>
+<li>Tennessee Whiskey</li>
+<li>Angel from Montgomery</li>
+<li>On the Road Again</li>
+<li>Chattahoochee</li>
+</ul>
+
+</div>
+
+<div>
+
+<h3>Soul, Folk & Singer-Songwriter</h3>
+
+<ul>
+<li>Stand By Me</li>
+<li>Dock of the Bay</li>
+<li>Wonderful World</li>
+<li>Bucket of Rain</li>
+<li>You Can Call Me Al</li>
+<li>Lost in My Mind</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</details>
+
+<details>
+
+<summary>Videos</summary>
+
+<div class="details-content">
 
 <div class="video-grid">
 
-    <!-- Replace with your YouTube links -->
+<iframe
+src="https://www.youtube.com/embed/GNZgdzQQx44"
+title="Kyle Reed Performance"
+frameborder="0"
+allowfullscreen>
+</iframe>
 
-    <iframe
-        src="https://youtu.be/GNZgdzQQx44?si=seQqi7N-YxjtjMCr&t=107"
-        allowfullscreen>
-    </iframe>
-
-    <iframe
-        src="https://www.youtube.com/watch?v=O385bOJAoGo"
-        allowfullscreen>
-    </iframe>
+<iframe
+src="https://www.youtube.com/embed/O385bOJAoGo"
+title="Kyle Reed Performance"
+frameborder="0"
+allowfullscreen>
+</iframe>
 
 </div>
 
+</div>
 
-</section>
+</details>
 
-<section id="shows">
-    <h2>Upcoming Shows</h2>
+<details>
 
+<summary>Upcoming Shows</summary>
 
-<ul class="shows">
-    <li>June 10 • Westham Tavern • Richmond, VA</li>
-    <li>July 8 • Westham Tavern • Richmond, VA</li>
+<div class="details-content shows">
+
+<ul>
+<li>June 10 • Westham Tavern • Richmond, VA</li>
+<li>July 8 • Westham Tavern • Richmond, VA</li>
 </ul>
 
-
-</section>
-
-<section id="booking">
-    <h2>Book Kyle!</h2>
-
-
 <p>
-    Available for breweries, restaurants, wineries,
-    private parties, weddings, cocktail hours,
-    and community events.
+Additional dates announced regularly.
 </p>
 
-<a href="mailto:kyle-reed@live.com" class="button">
-    Contact for Availability
+</div>
+
+</details>
+
+<details>
+
+<summary>Perfect For</summary>
+
+<div class="details-content">
+
+<ul>
+<li>Breweries & Wineries</li>
+<li>Restaurants & Coffeehouses</li>
+<li>Wedding Cocktail Hours</li>
+<li>Private Parties</li>
+<li>Community Events</li>
+<li>Corporate Gatherings</li>
+</ul>
+
+</div>
+
+</details>
+
+<details id="booking">
+
+<summary>Booking Information</summary>
+
+<div class="details-content contact-box">
+
+<p>
+Available throughout Richmond and Central Virginia.
+</p>
+
+<br>
+
+<p>
+For availability, pricing, and event inquiries:
+</p>
+
+<br>
+
+<a href="mailto:kyle-reed@live.com">
+kyle-reed@live.com
 </a>
 
+</div>
+
+</details>
 
 </section>
 
+<div class="socials">
+
+<a href="#">Instagram</a> |
+<a href="#">Facebook</a> |
+<a href="#">YouTube</a>
+
+</div>
+
 <footer>
-    <p>© 2026 Kyle Reed</p>
+
+<p>
+© 2026 Kyle Reed Live
+</p>
+
 </footer>
 
 </body>
