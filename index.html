@@ -1,409 +1,579 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Kyle Reed Live</title>
-
+<title>Kyle Reed — Live Acoustic Music, Richmond VA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  :root {
+    --ink: #2B2420;
+    --parchment: #F7F2E7;
+    --parchment-deep: #EFE7D6;
+    --copper: #A8633C;
+    --copper-deep: #8A4F30;
+    --sage: #5B6B4F;
+    --brass: #C9A961;
+    --line: rgba(43, 36, 32, 0.14);
+    --paper-shadow: 0 1px 0 rgba(43,36,32,0.05);
+    --display: 'Fraunces', serif;
+    --body: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
 
-html {
-    scroll-behavior: smooth;
-}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-    font-family: Georgia, serif;
-    background-color: #111;
-    color: white;
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: var(--body);
     line-height: 1.6;
-}
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
 
-.hero {
-    min-height: 100vh;
-    background:
-        linear-gradient(
-            rgba(0,0,0,.55),
-            rgba(0,0,0,.55)
-        ),
-        url('https://github.com/kreedyle/kylereedlive/blob/main/b-w%20guitar.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-}
+  /* texture */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(43,36,32,0.025) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(43,36,32,0.025) 0%, transparent 40%);
+  }
 
-.hero-content {
-    max-width: 800px;
-}
+  a { color: inherit; text-decoration: none; }
 
-.hero h1 {
-    font-size: 4rem;
-    letter-spacing: 3px;
-    margin-bottom: .5rem;
-}
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
 
-.hero h2 {
-    font-size: 1.3rem;
-    font-weight: normal;
-    margin-bottom: 1.5rem;
-}
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(247, 242, 231, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1080px; margin: 0 auto; padding: 18px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-name {
+    font-family: var(--display); font-weight: 600; font-size: 1.15rem;
+    letter-spacing: 0.01em;
+  }
+  .nav-links { display: flex; gap: 28px; font-size: 0.88rem; font-weight: 500; }
+  .nav-links a { opacity: 0.75; transition: opacity 0.2s, color 0.2s; padding: 4px 2px; border-bottom: 1px solid transparent; }
+  .nav-links a:hover, .nav-links a:focus-visible { opacity: 1; color: var(--copper-deep); border-bottom-color: var(--copper); }
+  .nav-links a:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; border-radius: 2px; }
+  .nav-cta {
+    background: var(--ink); color: var(--parchment);
+    padding: 9px 18px; border-radius: 3px; font-size: 0.85rem; font-weight: 600;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--copper-deep); }
+  @media (max-width: 640px) { .nav-links { display: none; } }
 
-.hero p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-}
-
-.button {
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 92px 0 64px;
+    position: relative;
+  }
+  .hero-grain {
+    position: absolute; top: 0; right: -8%;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, var(--brass) 0%, transparent 70%);
+    opacity: 0.18; pointer-events: none; z-index: 0;
+  }
+  .eyebrow {
+    font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--copper-deep);
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 22px; opacity: 0;
+    animation: riseIn 0.7s ease forwards;
+  }
+  .eyebrow::before {
+    content: ""; width: 7px; height: 7px; border-radius: 50%;
+    background: var(--sage); display: inline-block;
+  }
+  .hero h1 {
+    font-family: var(--display); font-weight: 600;
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 0.98; letter-spacing: -0.01em;
+    max-width: 760px;
+    opacity: 0; animation: riseIn 0.8s ease 0.1s forwards;
+  }
+  .hero h1 em {
+    font-style: italic; font-weight: 400; color: var(--copper-deep);
+  }
+  .hero-sub {
+    margin-top: 24px; font-size: 1.15rem; max-width: 540px;
+    color: rgba(43,36,32,0.78);
+    opacity: 0; animation: riseIn 0.8s ease 0.22s forwards;
+  }
+  .hero-actions {
+    margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap;
+    opacity: 0; animation: riseIn 0.8s ease 0.32s forwards;
+  }
+  .btn-primary {
+    background: var(--copper-deep); color: var(--parchment);
+    padding: 14px 26px; border-radius: 3px; font-weight: 600; font-size: 0.95rem;
+    transition: transform 0.15s, background 0.2s;
     display: inline-block;
-    padding: 12px 24px;
-    background: white;
-    color: black;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: bold;
-}
+  }
+  .btn-primary:hover { background: var(--ink); transform: translateY(-1px); }
+  .btn-secondary {
+    border: 1px solid var(--ink); padding: 14px 26px; border-radius: 3px;
+    font-weight: 600; font-size: 0.95rem; transition: background 0.2s, transform 0.15s;
+  }
+  .btn-secondary:hover { background: rgba(43,36,32,0.06); transform: translateY(-1px); }
+  .btn-primary:focus-visible, .btn-secondary:focus-visible { outline: 2px solid var(--copper-deep); outline-offset: 2px; }
 
-.section {
-    max-width: 1000px;
-    margin: auto;
-    padding: 5rem 2rem;
-}
+  @keyframes riseIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) {
+    .eyebrow, .hero h1, .hero-sub, .hero-actions { animation: none; opacity: 1; }
+  }
 
-.section h2 {
-    margin-bottom: 2rem;
-    text-align: center;
-    font-size: 2rem;
-}
+  /* ---------- SECTION SHELL ---------- */
+  section { padding: 76px 0; border-top: 1px solid var(--line); }
+  .section-head { margin-bottom: 40px; max-width: 560px; }
+  .section-eyebrow {
+    font-family: var(--mono); font-size: 0.76rem; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--sage); margin-bottom: 10px;
+  }
+  .section-head h2 {
+    font-family: var(--display); font-weight: 600; font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  }
+  .section-head p { margin-top: 12px; color: rgba(43,36,32,0.7); font-size: 1.02rem; }
 
-details {
-    background: #1d1d1d;
-    margin-bottom: 1rem;
-    border-radius: 6px;
-}
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
-summary {
-    padding: 1rem;
-    cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
+  /* ---------- THE SPEC CARD (signature element) ---------- */
+  .specsheet {
+    background: var(--ink); color: var(--parchment);
+    border-radius: 6px; padding: 0; overflow: hidden;
+    box-shadow: 0 24px 60px -20px rgba(43,36,32,0.45);
+  }
+  .specsheet-head {
+    padding: 22px 28px; border-bottom: 1px dashed rgba(247,242,231,0.25);
+    display: flex; align-items: baseline; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px;
+  }
+  .specsheet-head .tag {
+    font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em;
+    color: var(--brass); text-transform: uppercase;
+  }
+  .specsheet-head h3 {
+    font-family: var(--display); font-size: 1.5rem; font-weight: 600;
+  }
+  .specsheet-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+  }
+  .spec-item {
+    padding: 26px 28px; border-right: 1px dashed rgba(247,242,231,0.18);
+    border-bottom: 1px dashed rgba(247,242,231,0.18);
+  }
+  .spec-item:nth-child(3n) { border-right: none; }
+  .spec-label {
+    font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.07em; color: var(--brass); margin-bottom: 8px;
+  }
+  .spec-value { font-size: 1.05rem; font-weight: 500; line-height: 1.45; }
+  .spec-value.small { font-size: 0.92rem; color: rgba(247,242,231,0.85); font-weight: 400; }
+  @media (max-width: 720px) {
+    .specsheet-grid { grid-template-columns: 1fr 1fr; }
+    .spec-item:nth-child(3n) { border-right: 1px dashed rgba(247,242,231,0.18); }
+    .spec-item:nth-child(2n) { border-right: none; }
+  }
+  @media (max-width: 480px) {
+    .specsheet-grid { grid-template-columns: 1fr; }
+    .spec-item { border-right: none !important; }
+  }
 
-.details-content {
-    padding: 1rem 1.5rem 2rem;
-}
+  /* ---------- SETLIST STRIP ---------- */
+  .genre-row {
+    display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px;
+  }
+  .genre-pill {
+    font-family: var(--mono); font-size: 0.82rem;
+    border: 1px solid var(--line); border-radius: 100px;
+    padding: 7px 16px; background: var(--parchment-deep);
+  }
 
-.video-grid {
-    display: grid;
-    gap: 2rem;
-}
+  /* ---------- ABOUT / PHOTO ---------- */
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: center;
+  }
+  .photo-frame {
+    aspect-ratio: 4/5; background: linear-gradient(155deg, var(--copper) 0%, var(--sage) 100%);
+    border-radius: 4px; position: relative; overflow: hidden;
+  }
+  .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-frame .ph-label {
+    position: absolute; bottom: 16px; left: 16px;
+    font-family: var(--mono); font-size: 0.7rem; color: var(--parchment);
+    background: rgba(43,36,32,0.55); padding: 5px 10px; border-radius: 3px;
+    letter-spacing: 0.04em;
+  }
+  .about-copy p { font-size: 1.05rem; color: rgba(43,36,32,0.85); margin-bottom: 16px; }
+  .about-copy p:first-child { font-family: var(--display); font-size: 1.3rem; font-weight: 500; color: var(--ink); }
+  @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
 
-.video-grid iframe {
-    width: 100%;
-    height: 400px;
-}
+  /* ---------- SHOWS ---------- */
+  .show-list { display: flex; flex-direction: column; }
+  .show-row {
+    display: grid; grid-template-columns: 110px 1fr auto; gap: 20px;
+    align-items: center; padding: 22px 0; border-bottom: 1px solid var(--line);
+    transition: transform 0.2s;
+  }
+  .show-row:hover { transform: translateX(4px); }
+  .show-date {
+    font-family: var(--mono); font-size: 0.95rem; color: var(--copper-deep); font-weight: 500;
+  }
+  .show-venue { font-family: var(--display); font-size: 1.2rem; font-weight: 600; }
+  .show-loc { font-size: 0.88rem; color: rgba(43,36,32,0.6); margin-top: 2px; }
+  .show-time {
+    font-family: var(--mono); font-size: 0.85rem;
+    border: 1px solid var(--line); padding: 7px 14px; border-radius: 100px;
+    white-space: nowrap;
+  }
+  @media (max-width: 640px) {
+    .show-row { grid-template-columns: 1fr; gap: 6px; }
+    .show-time { justify-self: start; margin-top: 6px; }
+  }
+  .no-shows {
+    border: 1px dashed var(--line); border-radius: 6px; padding: 32px;
+    text-align: center; color: rgba(43,36,32,0.6); font-family: var(--mono); font-size: 0.9rem;
+  }
 
-.repertoire-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 2rem;
-}
+  /* ---------- GALLERY ---------- */
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  }
+  .gallery-item {
+    aspect-ratio: 1; background: var(--parchment-deep); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 0.72rem; color: rgba(43,36,32,0.4);
+    border: 1px dashed var(--line); overflow: hidden;
+    transition: transform 0.25s;
+  }
+  .gallery-item:hover { transform: scale(1.03); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 640px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
 
-.repertoire-grid ul {
-    padding-left: 20px;
-}
+  /* ---------- TESTIMONIAL ---------- */
+  .quote-block {
+    border-left: 3px solid var(--copper); padding-left: 26px;
+    font-family: var(--display); font-size: 1.35rem; font-style: italic;
+    color: var(--ink); max-width: 640px;
+  }
+  .quote-attr {
+    font-family: var(--body); font-style: normal; font-size: 0.88rem;
+    margin-top: 14px; color: rgba(43,36,32,0.65); font-weight: 500;
+  }
 
-.shows ul {
-    list-style: none;
-}
+  /* ---------- CONTACT / BOOKING ---------- */
+  .contact-section { background: var(--parchment-deep); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .form-field { margin-bottom: 18px; }
+  .form-field label {
+    display: block; font-family: var(--mono); font-size: 0.75rem;
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 7px;
+    color: rgba(43,36,32,0.7);
+  }
+  .form-field input, .form-field select, .form-field textarea {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--line);
+    border-radius: 3px; background: var(--parchment); font-family: var(--body);
+    font-size: 0.95rem; color: var(--ink);
+  }
+  .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+    outline: 2px solid var(--copper); outline-offset: 1px; border-color: var(--copper);
+  }
+  .form-field textarea { resize: vertical; min-height: 100px; }
+  .submit-btn {
+    background: var(--ink); color: var(--parchment); border: none;
+    padding: 14px 30px; border-radius: 3px; font-weight: 600; font-size: 0.95rem;
+    cursor: pointer; transition: background 0.2s;
+    font-family: var(--body);
+  }
+  .submit-btn:hover { background: var(--copper-deep); }
+  .submit-btn:focus-visible { outline: 2px solid var(--copper-deep); outline-offset: 2px; }
+  .contact-info { display: flex; flex-direction: column; gap: 22px; }
+  .contact-info-item .label { font-family: var(--mono); font-size: 0.75rem; color: var(--sage); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .contact-info-item .value { font-size: 1.1rem; font-weight: 500; }
+  @media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; gap: 36px; } }
 
-.shows li {
-    margin-bottom: 1rem;
-}
-
-.contact-box {
-    text-align: center;
-}
-
-.contact-box a {
-    color: white;
-}
-
-.socials {
-    text-align: center;
-    padding: 2rem;
-}
-
-.socials a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 2rem;
-    background: #000;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-    font-size:2.5rem;
-}
-
-.video-grid iframe{
-    height:250px;
-}
-
-}
+  footer {
+    padding: 32px 0; text-align: center;
+    font-family: var(--mono); font-size: 0.78rem; color: rgba(43,36,32,0.5);
+    border-top: 1px solid var(--line);
+  }
 </style>
-
 </head>
-
 <body>
 
-<section class="hero">
+<nav>
+  <div class="nav-inner">
+    <div class="nav-links">
+      <a href="#shows">Shows</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#book">Book Me</a>
+    </div>
+    <a href="#book" class="nav-cta">Book a date</a>
+  </div>
+</nav>
 
-<div class="hero-content">
+<header class="hero">
+  <div class="hero-grain"></div>
+  <div class="wrap">
+    <div class="eyebrow">Solo Acoustic · Richmond, VA &amp; surrounding area</div>
+    <h1>Live music that fits<br>the <em>room</em>, not the other<br>way around.</h1>
+    <p class="hero-sub">Ambiance built for restaurants, breweries, wineries, and private events.</p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-primary">Check a date</a>
+      <a href="#shows" class="btn-secondary">See upcoming shows</a>
+    </div>
+  </div>
+</header>
 
-<h1>KYLE REED LIVE</h1>
+<section id="rider" class="reveal is-visible">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">For venues &amp; bookers</div>
+      <h2>What I bring to your room</h2>
+    </div>
 
-<h2>Classic Rock • Americana • Country • Folk</h2>
+    <div class="specsheet">
+      <div class="specsheet-head">
+        <span class="tag">Booking Spec Sheet</span>
+        <h3>[Your Name] — Solo Acoustic</h3>
+      </div>
+      <div class="specsheet-grid">
+        <div class="spec-item">
+          <div class="spec-label">Setup</div>
+          <div class="spec-value">Guitar &amp; vocals</div>
+          <div class="spec-value small">Martin Audio 12" PA with microphone — happy to use house sound if available</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Set Length</div>
+          <div class="spec-value">2–3 hour sets</div>
+          <div class="spec-value small">Flexible: 45-min sets, multiple sets with breaks, or background-to-foreground volume</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Repertoire</div>
+          <div class="spec-value">150+ songs</div>
+          <div class="spec-value small">Crowd-pleasing covers across decades &amp; genres, plus original songs</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Best Fit</div>
+          <div class="spec-value">Restaurants, breweries, wineries, private events</div>
+          <div class="spec-value small">Happy hour, brunch, dinner service, or full evening</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Space Needed</div>
+          <div class="spec-value">~6×6 ft corner</div>
+          <div class="spec-value small">One outlet nearby; no stage required</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Booking Lead Time</div>
+          <div class="spec-value">2+ weeks preferred</div>
+          <div class="spec-value small">Can sometimes accommodate shorter notice — just ask</div>
+        </div>
+      </div>
+    </div>
 
-<p>
-Richmond-based solo acoustic performer bringing timeless songs,
-memorable singalongs, and a laid-back atmosphere to breweries,
-restaurants, weddings, private events, and community gatherings.
-</p>
-
-<a href="#booking" class="button">
-Book Kyle
-</a>
-
-</div>
-
+    <div class="genre-row">
+      <span class="genre-pill">Pop</span>
+      <span class="genre-pill">Classic Rock</span>
+      <span class="genre-pill">Country</span>
+      <span class="genre-pill">Soul / R&amp;B</span>
+      <span class="genre-pill">Folk</span>
+      <span class="genre-pill">Original Songs</span>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-
-<details open>
-<summary>About Kyle</summary>
-
-<div class="details-content">
-
-<p>
-Kyle Reed is a Richmond, Virginia-based musician, songwriter, and
-self-described "old soul" whose performances blend classic rock,
-country, folk, soul, and modern acoustic favorites into an engaging,
-nostalgic experience.
-</p>
-
-<br>
-
-<p>
-Originally from Florida, Kyle spent several seasons performing throughout
-the Fort Walton Beach and Destin area, appearing at venues including
-McGuire's Irish Pub, Brotula's Seafood House & Steamer, AJ's Seafood &
-Oyster Bar, The Other End, and The Green Door.
-</p>
-
-<br>
-
-<p>
-Drawing inspiration from Tom Petty, Bob Dylan, John Prine,
-Paul Simon, Sam Cooke, The Beatles, and The Head and the Heart,
-Kyle delivers a repertoire that balances timeless crowd favorites
-with thoughtful songwriter selections.
-</p>
-
-</div>
-
-</details>
-
-<details>
-
-<summary>Featured Repertoire</summary>
-
-<div class="details-content">
-
-<div class="repertoire-grid">
-
-<div>
-
-<h3>Classic Rock</h3>
-
-<ul>
-<li>American Girl</li>
-<li>Beast of Burden</li>
-<li>Rocket Man</li>
-<li>Pretty Woman</li>
-<li>Mainstreet</li>
-<li>You Wreck Me</li>
-</ul>
-
-</div>
-
-<div>
-
-<h3>Country & Americana</h3>
-
-<ul>
-<li>Friends in Low Places</li>
-<li>Wagon Wheel</li>
-<li>Tennessee Whiskey</li>
-<li>Angel from Montgomery</li>
-<li>On the Road Again</li>
-<li>Chattahoochee</li>
-</ul>
-
-</div>
-
-<div>
-
-<h3>Soul, Folk & Singer-Songwriter</h3>
-
-<ul>
-<li>Stand By Me</li>
-<li>Dock of the Bay</li>
-<li>Wonderful World</li>
-<li>Bucket of Rain</li>
-<li>You Can Call Me Al</li>
-<li>Lost in My Mind</li>
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-</details>
-
-<details>
-
-<summary>Videos</summary>
-
-<div class="details-content">
-
-<div class="video-grid">
-
-<iframe
-src="https://www.youtube.com/embed/GNZgdzQQx44"
-title="Original Tune about the beauty of upcycling called "Street Shopping""
-frameborder="0"
-allowfullscreen>
-</iframe>
-
-<iframe
-src="https://www.youtube.com/embed/O385bOJAoGo"
-title="White Stripes Cover"
-frameborder="0"
-allowfullscreen>
-</iframe>
-
-</div>
-
-</div>
-
-</details>
-
-<details>
-
-<summary>Upcoming Shows</summary>
-
-<div class="details-content shows">
-
-<ul>
-<li>June 10 • Westham Tavern • Richmond, VA</li>
-<li>July 8 • Westham Tavern • Richmond, VA</li>
-</ul>
-
-<p>
-Additional dates announced regularly.
-</p>
-
-</div>
-
-</details>
-
-<details>
-
-<summary>Perfect For</summary>
-
-<div class="details-content">
-
-<ul>
-<li>Breweries & Wineries</li>
-<li>Restaurants & Coffeehouses</li>
-<li>Wedding Cocktail Hours</li>
-<li>Private Parties</li>
-<li>Community Events</li>
-<li>Corporate Gatherings</li>
-</ul>
-
-</div>
-
-</details>
-
-<details id="booking">
-
-<summary>Booking Information</summary>
-
-<div class="details-content contact-box">
-
-<p>
-Available throughout Richmond and Central Virginia.
-</p>
-
-<br>
-
-<p>
-For availability, pricing, and event inquiries:
-</p>
-
-<br>
-
-<a href="mailto:kyle-reed@live.com">
-kyle-reed@live.com
-</a>
-
-</div>
-
-</details>
-
+<section id="about" class="reveal is-visible">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="photo-frame">
+        <!-- Replace this div with: <img src="your-photo.jpg" alt="[Your Name] performing"> -->
+        <div class="ph-label">Photo: performance shot here</div>
+      </div>
+      <div class="about-copy">
+        <p>I'm Kyle Reed — a Richmond-based acoustic performer who's philosophy is simple, plug in and play.</p>
+        <p>My sets mix crowd pleasers, timeless classics, and personal favorites with a handful of originals I've written along the way. I read a room — dinner service gets something different than a Saturday happy hour — and I show up early, plug in quietly, and let the night do its thing.</p>
+        <p>If you've got a space that could use a regular night of live music, or a private event that needs the right soundtrack, let's talk.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<div class="social-con">
+<section id="shows" class="reveal is-visible">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">On the calendar</div>
+      <h2>Upcoming shows</h2>
+      <p>Come say hi. New dates added as they're booked.</p>
+    </div>
 
-<a
-href="https://open.spotify.com/artist/6YasUrN4lYeE0drEIIOziH"
-target="_blank"
-title="Spotify">
+    <div class="show-list">
+      <!-- Duplicate this block for each show. Delete the .no-shows div below once you have real dates. -->
+      <div class="show-row">
+        <div class="show-date">JUNE 10</div>
+        <div>
+          <div class="show-venue">Westham Tavern, Omni Hotel</div>
+          <div class="show-loc">Richmond, VA</div>
+        </div>
+        <div class="show-time">5-7 PM</div>
+      </div>
+        <div class="show-row">
+        <div class="show-date">JUNE 20</div>
+        <div>
+          <div class="show-venue">Private Event</div>
+          <div class="show-loc">Bethesda, MD</div>
+        </div>
+        <div class="show-time">4-6 PM</div>
+      <div class="show-row">
+        <div class="show-date">JULY 8</div>
+        <div>
+          <div class="show-venue">Westham Tavern, Omni Hotel</div>
+          <div class="show-loc">Richmond, VA</div>
+        </div>
+        <div class="show-time">5-7 PM</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<img
-src="assets/icons/spotify.svg"
-alt="Spotify"
-class="social-logo">
+<section id="gallery" class="reveal is-visible">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">From the road</div>
+      <h2>Gallery</h2>
+      <p>A few shots from recent shows.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">photo 1</div>
+      <div class="gallery-item">photo 2</div>
+      <div class="gallery-item">photo 3</div>
+      <div class="gallery-item">photo 4</div>
+      <div class="gallery-item">photo 5</div>
+      <div class="gallery-item">photo 6</div>
+    </div>
+  </div>
+</section>
 
-</a>
+<section class="reveal is-visible">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Kind words</div>
+      <h2>From venues &amp; hosts</h2>
+    </div>
+    <div class="quote-block">
+      "He provided the perfect ambiance and entertainment...We could not recommend him more highly and look forward to having him to play for us again soon."
+      <div class="quote-attr">— Jeffrey D., Private Event</div>
+    </div>
+  </div>
+</section>
 
-</div>
+<section id="book" class="contact-section reveal is-visible">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-eyebrow">Let's book a date</div>
+      <h2>Get in touch</h2>
+      <p>Tell me a bit about your space and the date you're thinking of — I'll follow up within a day or two.</p>
+    </div>
+
+    <div class="contact-grid">
+      <form>
+        <div class="form-field">
+          <label for="venue-name">Venue / event name</label>
+          <input type="text" id="venue-name" name="venue-name">
+        </div>
+        <div class="form-field">
+          <label for="contact-name">Your name</label>
+          <input type="text" id="contact-name" name="contact-name">
+        </div>
+        <div class="form-field">
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" name="contact-email">
+        </div>
+        <div class="form-field">
+          <label for="event-date">Preferred date(s)</label>
+          <input type="text" id="event-date" name="event-date" placeholder="e.g. Friday evenings, or a specific date">
+        </div>
+        <div class="form-field">
+          <label for="event-type">Type of booking</label>
+          <select id="event-type" name="event-type">
+            <option>Recurring weekly/monthly slot</option>
+            <option>One-off event</option>
+            <option>Private party</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="message">Anything else?</label>
+          <textarea id="message" name="message" placeholder="Room size, sound setup, vibe you're going for..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send inquiry</button>
+      </form>
+
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <div class="label">Email</div>
+          <div class="value">[kyle-reed@live.com]</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="label">Phone</div>
+          <div class="value">[(850)428-6089]</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="label">Based in</div>
+          <div class="value">Richmond, VA — also available throughout Central Virginia</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="label">Response time</div>
+          <div class="value">Usually within 1–2 business days</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
-
-<p>
-© 2026 Kyle Reed Live
-</p>
-
+  © 2026 Kyle Reed. Built for Richmond's restaurants, breweries &amp; wineries.
 </footer>
 
-</body>
-</html>
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Demo form handling (replace with real form backend — see notes in README)
+  const form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('This form is a placeholder. Connect it to Formspree, Netlify Forms, or your email — see the README for instructions.');
+    });
+  }
+</script>
+
+
+
+</body></html>
